@@ -41,6 +41,11 @@ export class GridsterComponent {
           event.previousIndex,
           event.currentIndex);
     }
-    console.log(this.todo, this.done);
+    // console.log(this.todo, this.done);
   }
+
+  getCanvasWidth() {
+    return ((this.selectedItems.length * 440) + 40) + "px";
+  }
+
 }

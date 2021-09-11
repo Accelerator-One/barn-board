@@ -1,9 +1,13 @@
 .container {
   width: 400px;
   max-width: 100%;
-  margin: 0 20px;
+  margin: 2em 20px 0px 20px;
   display: inline-block;
   vertical-align: top;
+
+  &:first-child {
+    margin: 2em 20px 0px 40px;
+  }
 }
 
 .list {
@@ -51,3 +55,9 @@
   opacity: 0;
 }
 
+.board-canvas {
+  width: 100%; 
+  height: calc(100% - 64px); 
+  overflow-x:scroll ; 
+  scroll-behavior: smooth;
+}
