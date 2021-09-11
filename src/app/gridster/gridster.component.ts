@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CoreService } from '../core.service';
 
 @Component({
   selector: 'app-gridster',
@@ -8,6 +9,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 })
 export class GridsterComponent {
   
+  constructor(public boardService: CoreService) {}
+
   todo = [
     'Get to work',
     'Pick up groceries',

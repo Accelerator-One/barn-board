@@ -8,6 +8,7 @@ export class CoreService {
 
   constructor() { }
 
+  public orgName: string = 'Devproductify';
   private boards: Array <Board> = [
     {
       name: 'TODO',
@@ -31,7 +32,7 @@ export class CoreService {
     this.boards = this.boards.filter((board, it) => it !== index);
   }
 
-  addTask(index: number, task: Task) {
+  addTask(index: number, task: any) {
     this.boards[index].tasks.push(task);
   }
 
