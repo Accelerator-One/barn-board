@@ -17,13 +17,17 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { LoginComponent } from './login/login.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GridsterComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    LoginComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
