@@ -3,6 +3,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { CoreService } from '../core.service';
+import { DialogService } from '../shared/dialog/dialog.service';
+import { LoaderService } from '../shared/loader.service';
 
 @Component({
   selector: 'app-navigation',
@@ -17,6 +19,17 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, public boardService: CoreService) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    public boardService: CoreService,
+    public dialog: DialogService,
+    private loader: LoaderService) { }
+
+  loaderPrototype() {
+    this.loader.show();
+    setTimeout(() => {
+      this.loader.hide();
+    }, 2400);
+  }
 
 }

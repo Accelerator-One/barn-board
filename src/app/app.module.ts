@@ -22,6 +22,9 @@ import { SettingsComponent } from './settings/settings.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DialogComponent } from './shared/dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -31,7 +34,8 @@ import { MatInputModule } from '@angular/material/input';
     HomeComponent,
     NavigationComponent,
     LoginComponent,
-    SettingsComponent
+    SettingsComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,9 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
