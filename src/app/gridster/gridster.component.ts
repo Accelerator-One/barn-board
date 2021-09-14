@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { CoreService } from '../core.service';
+import { Board } from '../interfaces';
+import TestStub from './stub.test';
 
 @Component({
   selector: 'app-gridster',
@@ -8,41 +10,22 @@ import { CoreService } from '../core.service';
   styleUrls: ['./gridster.component.scss'],
 })
 export class GridsterComponent {
-  
-  constructor(public boardService: CoreService) {}
 
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
+  public selectedItems: Array<Board> = [];
 
-  progress = [
-    'Hola',
-    'Amigos'
-  ]
+  constructor(public boardService: CoreService) {
+    // NOTE: Comment the line below before production
+    this.selectedItems = TestStub;
+  }
 
-  done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
-
-  selectedItems = [
-    this.todo, this.progress, this.done
-  ]
-
-  drop(event: CdkDragDrop<string[]>): void {
+  drop(event: CdkDragDrop<any[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,
-          event.container.data,
-          event.previousIndex,
-          event.currentIndex);
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
     }
     // console.log(this.todo, this.done);
   }
@@ -50,5 +33,4 @@ export class GridsterComponent {
   getCanvasWidth() {
     return ((this.selectedItems.length * 440) + 40) + "px";
   }
-
 }

@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TaskNodeComponent implements OnInit {
 
-  @Input('info') info: string = '';
+  @Input('info') public info: any = {};
 
   constructor() { }
   ngOnInit(): void { }

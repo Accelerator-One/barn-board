@@ -1,17 +1,24 @@
 <div class='board-canvas'>
+
   <div class='wrapper-board' [ngStyle]='{ "width": getCanvasWidth() }'>
     <div class="container" *ngFor='let item of selectedItems; index as it'>
-      <h2> Dialog - {{ it }} </h2>
-    
-      <div [id]='""+it' cdkDropList [cdkDropListData]="item"
-          [cdkDropListConnectedTo]="['0','2','1']" class="list" (cdkDropListDropped)="drop($event)">
-        <ng-container *ngFor="let data of item">
+
+      <h2> {{ item.name }} </h2>
+
+      <div [id]='""+it' cdkDropList [cdkDropListData]="(item.tasks)" [cdkDropListConnectedTo]="['0','1']" class="list"
+        (cdkDropListDropped)="drop($event)">
+        <ng-container *ngFor="let data of item.tasks">
           <div class="list-item" cdkDrag>
             <app-task-node [info]='data'></app-task-node>
           </div>
         </ng-container>
       </div>
+
     </div>
   </div>
-</div>
 
+  <div class='centered' *ngIf='!selectedItems || selectedItems.length === 0'>
+    <h2> No tasks found </h2>
+  </div>
+
+</div>
