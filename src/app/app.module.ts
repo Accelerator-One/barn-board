@@ -25,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
 import { DialogComponent } from './shared/dialog/dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { TaskNodeComponent } from './shared/task-node/task-node.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     NavigationComponent,
     LoginComponent,
     SettingsComponent,
-    DialogComponent
+    DialogComponent,
+    TaskNodeComponent
   ],
   imports: [
     BrowserModule,
