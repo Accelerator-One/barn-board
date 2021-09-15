@@ -1,9 +1,9 @@
 interface Task {
   title: string,
-  start: string,
-  end: string,
+  date: number,
   description: string,
-  asignee: string,
+  creator: string,
+  labels: Array<string>
 }
 
 interface Board {

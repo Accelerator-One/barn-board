@@ -1,18 +1,34 @@
 <div style="padding: 0em 1em;">
+
   <div class='space-between'>
     <h2> {{ info?.title }} </h2>
-    <button mat-icon-button class="more-button" aria-label="More options">
+    <button mat-icon-button class="more-button" [matMenuTriggerFor]='more' aria-label="More options">
       <mat-icon style='cursor: pointer;'>more_vert</mat-icon>
     </button>
   </div>
+
+  <div class='col' style="height: 24px;">
+    <mat-icon>schedule</mat-icon>
+    <p style="padding-left: 0.8em; position: relative; top: 6px;"> {{ info?.date | date:'longDate' }} </p>
+  </div>
+
+  <br />
+
   <p style="color: #212121;"> {{ info?.description }} </p>
-  <div class='space-between'>
-    <p> {{ info?.start }} </p>
+  <div class='space-between' style="height: 56px;">
+    <button mat-mini-fab disableRipple style="box-shadow: none;" [color]='color'>
+      {{ info?.creator[0] }}
+    </button>
     <mat-chip-list>
-      <mat-chip removable *ngFor='let label of (info?.asignee).split(", "); index as it'
-        [color]='colorService.getRandomPalette(it)' selected>
+      <mat-chip removable *ngFor='let label of info?.labels; index as it' [color]='colorService.getRandomPalette(it)'
+        selected>
         {{ label }}
         <mat-icon matChipRemove>cancel</mat-icon>
       </mat-chip>
     </mat-chip-list>
   </div>
+
+  <mat-menu #more="matMenu" xPosition="before">
+    <button mat-menu-item> Edit </button>
+    <button mat-menu-item> Remove </button>
+  </mat-menu>

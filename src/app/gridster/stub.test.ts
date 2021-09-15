@@ -1,23 +1,23 @@
 let stub = [{
-  name: 'Blackboard',
+  name: 'Todo',
   tasks: [
     {
-      title: 'Demo title',
-      start: '26/10/1999',
-      end: '26/10/2023',
-      description: 'Expected Lifespan',
-      asignee: 'Commerce, IT',
+      title: 'Design mockups',
+      date: Date.now(),
+      description: 'Prepare the mockups for settings module',
+      creator: 'John Doe',
+      labels: ['IT', 'Work']
     }
   ]
 }, {
-  name: 'Blueboard',
+  name: 'In Progress',
   tasks: [
     {
-      title: 'Second title',
-      start: '26/10/2023',
-      end: '26/10/INF',
-      description: 'Memorials',
-      asignee: 'Java, BE',
+      title: 'Develop Components',
+      date: Date.now(),
+      description: 'Develop material components suiting accessibility standards',
+      creator: 'Aditya Thakur',
+      labels: ['UI', 'Angular', 'Dev']
     }
   ]
 }];

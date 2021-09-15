@@ -9,8 +9,12 @@ import { RandomColorService } from '../random-color.service';
 export class TaskNodeComponent implements OnInit {
 
   @Input('info') public info: any = {};
+  public color: any = '';
+
   constructor(public colorService: RandomColorService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.color = this.colorService.getRandomPalette();
+  }
 
 }
