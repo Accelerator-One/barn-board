@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RandomColorService } from '../random-color.service';
 
 @Component({
   selector: 'app-task-node',
@@ -8,8 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TaskNodeComponent implements OnInit {
 
   @Input('info') public info: any = {};
+  constructor(public colorService: RandomColorService) { }
 
-  constructor() { }
   ngOnInit(): void { }
 
 }

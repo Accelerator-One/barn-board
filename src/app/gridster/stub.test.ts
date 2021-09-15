@@ -6,7 +6,7 @@ let stub = [{
       start: '26/10/1999',
       end: '26/10/2023',
       description: 'Expected Lifespan',
-      asignee: 'IT',
+      asignee: 'Commerce, IT',
     }
   ]
 }, {
@@ -17,7 +17,7 @@ let stub = [{
       start: '26/10/2023',
       end: '26/10/INF',
       description: 'Memorials',
-      asignee: 'Industry',
+      asignee: 'Java, BE',
     }
   ]
 }];

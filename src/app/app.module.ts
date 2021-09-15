@@ -23,9 +23,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DialogComponent } from './shared/dialog/dialog.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TaskNodeComponent } from './shared/task-node/task-node.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { TaskNodeComponent } from './shared/task-node/task-node.component';
     MatIconModule,
     MatInputModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

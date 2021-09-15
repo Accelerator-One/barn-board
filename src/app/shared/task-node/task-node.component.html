@@ -1,1 +1,18 @@
-<span> {{ info | json }} </span>
+<div style="padding: 0em 1em;">
+  <div class='space-between'>
+    <h2> {{ info?.title }} </h2>
+    <button mat-icon-button class="more-button" aria-label="More options">
+      <mat-icon style='cursor: pointer;'>more_vert</mat-icon>
+    </button>
+  </div>
+  <p style="color: #212121;"> {{ info?.description }} </p>
+  <div class='space-between'>
+    <p> {{ info?.start }} </p>
+    <mat-chip-list>
+      <mat-chip removable *ngFor='let label of (info?.asignee).split(", "); index as it'
+        [color]='colorService.getRandomPalette(it)' selected>
+        {{ label }}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
