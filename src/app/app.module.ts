@@ -27,6 +27,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TaskNodeComponent } from './shared/task-node/task-node.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -63,7 +65,13 @@ import { MatChipsModule } from '@angular/material/chips';
     MatInputModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatChipsModule
+    MatChipsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
