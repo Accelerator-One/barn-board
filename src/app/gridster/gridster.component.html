@@ -7,6 +7,9 @@
 
       <div [id]="'board-'+it" cdkDropList [cdkDropListData]="(item.tasks)" [cdkDropListConnectedTo]="getConnectedComponents()" class="list"
         (cdkDropListDropped)="drop($event)">
+        <div class='empty-banner' *ngIf='item.tasks.length === 0'>
+          <h3> This board is empty </h3>
+        </div>
         <ng-container *ngFor="let data of item.tasks; index as pos">
           <div class="list-item" cdkDrag>
             <app-task-node 
