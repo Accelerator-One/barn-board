@@ -27,7 +27,18 @@ export class GridsterComponent {
         event.previousIndex,
         event.currentIndex);
     }
-    // console.log(this.todo, this.done);
+    // console.log(this.selectedItems);
+  }
+
+  getConnectedComponents() {
+
+    let length = this.selectedItems.length;
+    let cmp_ids = [];
+
+    for(let i=0; i<length; i++)
+      cmp_ids.push("board-"+i);
+    
+    return cmp_ids;
   }
 
   getCanvasWidth() {

@@ -5,7 +5,7 @@
 
       <h2 style="padding-left: 1em;"> {{ item.name }} </h2>
 
-      <div [id]='""+it' cdkDropList [cdkDropListData]="(item.tasks)" [cdkDropListConnectedTo]="['0','1']" class="list"
+      <div [id]="'board-'+it" cdkDropList [cdkDropListData]="(item.tasks)" [cdkDropListConnectedTo]="getConnectedComponents()" class="list"
         (cdkDropListDropped)="drop($event)">
         <ng-container *ngFor="let data of item.tasks">
           <div class="list-item" cdkDrag>
