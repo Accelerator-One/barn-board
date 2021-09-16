@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { RandomColorService } from '../random-color.service';
 
 @Component({
@@ -8,13 +9,26 @@ import { RandomColorService } from '../random-color.service';
 })
 export class TaskNodeComponent implements OnInit {
 
-  @Input('info') public info: any = {};
   public color: any = '';
+
+  @Input('info') public info: any = {};
+  @Input('coords') public coords: Array <number> = [];
+
+  @Output('edit') edit = new EventEmitter();
+  @Output('remove') remove = new EventEmitter();
 
   constructor(public colorService: RandomColorService) { }
 
   ngOnInit(): void {
     this.color = this.colorService.getRandomPalette();
+  }
+
+  emitEditSignal() {
+    this.edit.emit(this.coords);
+  }
+
+  emitRemoveSignal() {
+    this.remove.emit(this.coords);
   }
 
 }

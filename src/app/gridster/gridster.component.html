@@ -7,9 +7,14 @@
 
       <div [id]="'board-'+it" cdkDropList [cdkDropListData]="(item.tasks)" [cdkDropListConnectedTo]="getConnectedComponents()" class="list"
         (cdkDropListDropped)="drop($event)">
-        <ng-container *ngFor="let data of item.tasks">
+        <ng-container *ngFor="let data of item.tasks; index as pos">
           <div class="list-item" cdkDrag>
-            <app-task-node [info]='data'></app-task-node>
+            <app-task-node 
+              [coords]='[it, pos]'
+              [info]='data' 
+              (edit)='editItem($event)' 
+              (remove)='removeItem($event)'>
+            </app-task-node>
           </div>
         </ng-container>
       </div>

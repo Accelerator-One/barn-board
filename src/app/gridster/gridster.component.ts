@@ -41,6 +41,15 @@ export class GridsterComponent {
     return cmp_ids;
   }
 
+  editItem(evt: any) {
+    console.log('editItem():', evt);
+  }
+
+  removeItem(evt: Array <number>) {
+    // console.log('removeItem(): ', evt);
+    this.selectedItems[evt[0]].tasks = this.selectedItems[evt[0]].tasks.filter((node, it) => it !== evt[1]);
+  }
+
   getCanvasWidth() {
     return ((this.selectedItems.length * 440) + 40) + "px";
   }
