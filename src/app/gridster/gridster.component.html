@@ -8,12 +8,12 @@
       <div [id]="'board-'+it" cdkDropList [cdkDropListData]="(item.tasks)"
         [cdkDropListConnectedTo]="getConnectedComponents()" class="list" (cdkDropListDropped)="drop($event)">
         <ng-container *ngFor="let data of item.tasks; index as pos">
-          <div class="list-item" cdkDrag (cdkDragStarted)='dragging = true' (cdkDragReleased)='dragging = false'>
+          <div class="list-item" cdkDrag (cdkDragStarted)='dragging = true' (cdkDragEnded)='dragging = false'>
             <app-task-node [coords]='[it, pos]' [info]='data' (edit)='editItem($event)' (remove)='removeItem($event)'>
             </app-task-node>
           </div>
         </ng-container>
-        <div class='empty-banner outlined' *ngIf='dragging && (item.tasks.length === 0)'>
+        <div appHideOnHover class='empty-banner outlined' *ngIf='dragging && (item.tasks.length === 0)'>
           <h3> Drop your task here </h3>
         </div>
         <div class='empty-banner' *ngIf='!dragging && (item.tasks.length === 0)'>

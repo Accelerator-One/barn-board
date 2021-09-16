@@ -29,6 +29,7 @@ import { TaskNodeComponent } from './shared/task-node/task-node.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HideOnHoverDirective } from './shared/hide-on-hover.directive';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { environment } from '../environments/environment';
     LoginComponent,
     SettingsComponent,
     DialogComponent,
-    TaskNodeComponent
+    TaskNodeComponent,
+    HideOnHoverDirective
   ],
   imports: [
     BrowserModule,
