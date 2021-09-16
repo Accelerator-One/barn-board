@@ -22,7 +22,8 @@
     </div>
   </div>
 
-  <div class='centered' *ngIf='!selectedItems || selectedItems.length === 0'>
+  <div class='centered' style="color: #424242" *ngIf='!selectedItems || selectedItems.length === 0'>
+    <h3><mat-icon [inline]='true' style="font-size: 8em" >history</mat-icon></h3>
     <h2> No tasks found </h2>
   </div>
 
