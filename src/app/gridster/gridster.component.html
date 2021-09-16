@@ -5,28 +5,29 @@
 
       <h2 style="padding-left: 1em;"> {{ item.name }} </h2>
 
-      <div [id]="'board-'+it" cdkDropList [cdkDropListData]="(item.tasks)" [cdkDropListConnectedTo]="getConnectedComponents()" class="list"
-        (cdkDropListDropped)="drop($event)">
-        <div class='empty-banner' *ngIf='item.tasks.length === 0'>
-          <h3> This board is empty </h3>
-        </div>
+      <div [id]="'board-'+it" cdkDropList [cdkDropListData]="(item.tasks)"
+        [cdkDropListConnectedTo]="getConnectedComponents()" class="list" (cdkDropListDropped)="drop($event)">
         <ng-container *ngFor="let data of item.tasks; index as pos">
-          <div class="list-item" cdkDrag>
-            <app-task-node 
-              [coords]='[it, pos]'
-              [info]='data' 
-              (edit)='editItem($event)' 
-              (remove)='removeItem($event)'>
+          <div class="list-item" cdkDrag (cdkDragStarted)='dragging = true' (cdkDragReleased)='dragging = false'>
+            <app-task-node [coords]='[it, pos]' [info]='data' (edit)='editItem($event)' (remove)='removeItem($event)'>
             </app-task-node>
           </div>
         </ng-container>
+        <div class='empty-banner outlined' *ngIf='dragging && (item.tasks.length === 0)'>
+          <h3> Drop your task here </h3>
+        </div>
+        <div class='empty-banner' *ngIf='!dragging && (item.tasks.length === 0)'>
+          <h3> This board is empty </h3>
+        </div>
       </div>
 
     </div>
   </div>
 
   <div class='centered' style="color: #424242" *ngIf='!selectedItems || selectedItems.length === 0'>
-    <h3><mat-icon [inline]='true' style="font-size: 8em" >history</mat-icon></h3>
+    <h3>
+      <mat-icon [inline]='true' style="font-size: 8em">history</mat-icon>
+    </h3>
     <h2> No tasks found </h2>
   </div>
 

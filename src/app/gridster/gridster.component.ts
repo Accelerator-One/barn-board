@@ -11,6 +11,7 @@ import TestStub from './stub.test';
 })
 export class GridsterComponent {
 
+  public dragging: Boolean = false;
   public selectedItems: Array<Board> = [];
 
   constructor(public boardService: CoreService) {
