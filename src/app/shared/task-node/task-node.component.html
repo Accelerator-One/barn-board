@@ -1,7 +1,10 @@
 <div style="padding: 0em 1em;">
 
   <div class='space-between'>
-    <h2> {{ info?.title }} </h2>
+    <div style='display:flex'>
+      <ng-content></ng-content>
+      <h2 style='padding-left: 8px;'> {{ info?.title }} </h2>
+    </div>
     <button mat-icon-button class="more-button" [matMenuTriggerFor]='more' aria-label="More options">
       <mat-icon style='cursor: pointer;'>more_vert</mat-icon>
     </button>

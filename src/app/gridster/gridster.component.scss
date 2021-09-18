@@ -17,16 +17,17 @@
   border-radius: 4px;
   display: block;
   overflow: hidden;
+  min-height: 150px;
 }
 
 .list-item {
   padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
   box-sizing: border-box;
   cursor: move;
   background: white;
   color: black;
   font-size: 14px;
+  cursor: default;
 }
 
 .list-item:last-child {
@@ -86,3 +87,13 @@
   margin: 1em;
   border-radius: 8px;
 }
+
+mat-icon {
+  position: relative;
+  top: 4px;
+}
+
+app-task-node {
+  height: auto !important;
+}
+
