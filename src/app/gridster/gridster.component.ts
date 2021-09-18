@@ -2,10 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { CoreService } from '../core.service';
 import { Board } from '../interfaces';
-import TestStub from './stub.test';
 import { StreamEvent, StreamServiceService } from '../shared/stream-service/stream-service.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { StoreService } from '../shared/store/store.service';
 
 @Component({
   selector: 'app-gridster',
@@ -16,14 +16,14 @@ export class GridsterComponent implements OnInit, OnDestroy {
 
   public dragging: Boolean = false;
   public selectedItems: Array<Board> = [];
-  private $destroyer: Subject <void> = new Subject <void> ();
+  private $destroyer: Subject<void> = new Subject<void>();
 
   constructor(
     public boardService: CoreService,
-    public eventService: StreamServiceService  
+    public eventService: StreamServiceService,
+    public storeService: StoreService
   ) {
-    // NOTE: Comment the line below before production
-    this.selectedItems = TestStub;
+    this.selectedItems = this.storeService.fetchBoards();
   }
 
   ngOnInit() {
@@ -31,7 +31,7 @@ export class GridsterComponent implements OnInit, OnDestroy {
       .listener(StreamEvent.REMOVE_TAG)
       .pipe(takeUntil(this.$destroyer))
       .subscribe(res => {
-        const {x, y, it} = res;
+        const { x, y, it } = res;
         this.removeLabel(x, y, it);
       })
   }
@@ -53,9 +53,9 @@ export class GridsterComponent implements OnInit, OnDestroy {
     let length = this.selectedItems.length;
     let cmp_ids = [];
 
-    for(let i=0; i<length; i++)
-      cmp_ids.push("board-"+i);
-    
+    for (let i = 0; i < length; i++)
+      cmp_ids.push("board-" + i);
+
     return cmp_ids;
   }
 
@@ -63,7 +63,7 @@ export class GridsterComponent implements OnInit, OnDestroy {
     console.log('editItem():', evt);
   }
 
-  removeItem(evt: Array <number>) {
+  removeItem(evt: Array<number>) {
     // console.log('removeItem(): ', evt);
     this.selectedItems[evt[0]].tasks = this.selectedItems[evt[0]].tasks.filter((node, it) => it !== evt[1]);
   }
@@ -75,6 +75,14 @@ export class GridsterComponent implements OnInit, OnDestroy {
 
   getCanvasWidth() {
     return ((this.selectedItems.length * 440) + 40) + "px";
+  }
+
+  public editBoardName() {
+
+  }
+
+  public editTaskDetails() {
+
   }
 
   ngOnDestroy() {
