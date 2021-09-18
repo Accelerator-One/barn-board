@@ -2,7 +2,7 @@
 
   <div class='space-between'>
     <div style='display:flex'>
-      <ng-content></ng-content>
+      <ng-content select='[icon]'></ng-content>
       <h2 style='padding-left: 8px;'> {{ info?.title }} </h2>
     </div>
     <button mat-icon-button class="more-button" [matMenuTriggerFor]='more' aria-label="More options">
@@ -35,3 +35,9 @@
     <button mat-menu-item (click)='emitEditSignal()'> Edit </button>
     <button mat-menu-item (click)='emitRemoveSignal()'> Remove </button>
   </mat-menu>
+
+</div>
+
+<ng-content select="[placeholder]">
+</ng-content>
+

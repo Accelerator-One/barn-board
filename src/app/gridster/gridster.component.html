@@ -10,9 +10,10 @@
         <ng-container *ngFor="let data of item.tasks; index as pos">
           <app-task-node cdkDrag (cdkDragStarted)='dragging = true' (cdkDragEnded)='dragging = false' class="list-item"
             [coords]='[it, pos]' [info]='data' (edit)='editItem($event)' (remove)='removeItem($event)'>
-            <mat-icon cdkDragHandle style="cursor:all-scroll !important;">
+            <mat-icon icon cdkDragHandle style="cursor:all-scroll !important;">
               menu
             </mat-icon>
+            <div placeholder class='placeholder' *cdkDragPlaceholder></div>
           </app-task-node>
         </ng-container>
         <div class='empty-banner' *ngIf='!dragging && (item.tasks.length === 0)'>
