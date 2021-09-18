@@ -15,9 +15,6 @@
             </mat-icon>
           </app-task-node>
         </ng-container>
-        <div appHideOnHover class='empty-banner outlined' *ngIf='dragging && (item.tasks.length === 0)'>
-          <h3> Drop your task here </h3>
-        </div>
         <div class='empty-banner' *ngIf='!dragging && (item.tasks.length === 0)'>
           <h3> This board is empty </h3>
         </div>
