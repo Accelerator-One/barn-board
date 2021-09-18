@@ -21,7 +21,7 @@
     </button>
     <mat-chip-list>
       <mat-chip removable *ngFor='let label of info?.labels; index as it' [color]='colorService.getRandomPalette(it)'
-        selected>
+        (removed)="tagRemovalHandler(it)" selected>
         {{ label }}
         <mat-icon matChipRemove>cancel</mat-icon>
       </mat-chip>

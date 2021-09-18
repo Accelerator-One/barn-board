@@ -11,4 +11,9 @@ interface Board {
   tasks: Array<Task>,
 }
 
-export { Task, Board };
+interface Stream {
+  uid: Number,
+  message?: any;
+}
+
+export { Task, Board, Stream };
