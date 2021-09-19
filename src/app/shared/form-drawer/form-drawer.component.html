@@ -1,0 +1,11 @@
+<mat-drawer-container class="form-container" [hasBackdrop]='true'>
+  <mat-drawer class='right-drawer' [mode]="'over'" [opened]='open' position='end'>
+
+    <!-- TODO: Add styling and action conditions here -->
+    <p>Hola Amigos!</p>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <ng-content></ng-content>
+  </mat-drawer-content>
+</mat-drawer-container>

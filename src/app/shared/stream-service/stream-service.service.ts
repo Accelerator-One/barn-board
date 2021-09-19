@@ -38,6 +38,6 @@ export class StreamServiceService implements OnDestroy {
 }
 
 export enum StreamEvent {
-  REMOVE_TAG
+  REMOVE_TAG,
+  TOGGLE_ENDNAV
 };
-

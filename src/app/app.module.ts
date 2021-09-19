@@ -29,7 +29,8 @@ import { TaskNodeComponent } from './shared/task-node/task-node.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { FormDrawerComponent } from './shared/form-drawer/form-drawer.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     SettingsComponent,
     DialogComponent,
     TaskNodeComponent,
+    FormDrawerComponent,
   ],
   imports: [
     BrowserModule,
