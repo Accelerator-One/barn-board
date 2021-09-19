@@ -18,12 +18,15 @@ export class StoreService {
     return this.boardStore;
   }
 
-  public addBoard() {
-
+  public addBoard(name: string) {
+    this.boardStore.push({
+      name: name,
+      tasks: []
+    });
   }
 
-  public addTask() {
-
+  public addTask(it: number, task: any) {
+    this.boardStore[it].tasks.push(task);
   }
 
 }

@@ -29,7 +29,7 @@ import { TaskNodeComponent } from './shared/task-node/task-node.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -66,6 +66,7 @@ import { environment } from '../environments/environment';
     MatDialogModule,
     MatProgressSpinnerModule,
     MatChipsModule,
+    MatTooltipModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
