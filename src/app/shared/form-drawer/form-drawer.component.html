@@ -1,8 +1,21 @@
 <mat-drawer-container class="form-container" [hasBackdrop]='true'>
-  <mat-drawer class='right-drawer' [mode]="'over'" [opened]='open' position='end'>
+  <mat-drawer disableClose='true' class='right-drawer' [mode]="'over'" [opened]='open' position='end'>
 
-    <!-- TODO: Add styling and action conditions here -->
-    <p>Hola Amigos!</p>
+    <div class='drawer-header space-between'>
+      <h2 style="margin: 0px 0pc -4px 0px;"> Form Name </h2>
+      <button mat-icon-button (click)='closeDrawer()'>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <div class='drawer-content'>
+      <p>My Content here</p>
+    </div>
+
+    <div class="drawer-footer space-between">
+      <button mat-button (click)='this.closeDrawer()'> Cancel </button>
+      <button mat-raised-button color='primary'> Save </button>
+    </div>
 
   </mat-drawer>
   <mat-drawer-content>

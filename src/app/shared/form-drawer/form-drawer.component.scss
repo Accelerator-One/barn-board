@@ -4,4 +4,22 @@
 
 .right-drawer {
   width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 24px;
+}
+
+.drawer-header, .drawer-footer {
+  height: 64px;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-content {
+  height: calc(100% - 128px);
 }
