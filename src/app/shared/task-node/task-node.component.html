@@ -1,9 +1,12 @@
-<div style="padding: 0em 1em;">
+<mat-divider></mat-divider>
+<div style="padding: 0.8em 1.6em;">
 
   <div class='space-between'>
-    <div style='display:flex'>
-      <ng-content select='[icon]'></ng-content>
-      <h2 style='padding-left: 8px;'> {{ info?.title }} </h2>
+    <div style='display:flex; align-items: center;'>
+      <div>
+        <ng-content select='[icon]'></ng-content>
+      </div>
+      <h2 style='padding-left: 16px; margin: 10px 0px 8px 0px'> {{ info?.title }} </h2>
     </div>
     <button mat-icon-button class="more-button" [matMenuTriggerFor]='more' aria-label="More options">
       <mat-icon style='cursor: pointer;'>more_vert</mat-icon>
@@ -41,3 +44,4 @@
 <ng-content select="[placeholder]">
 </ng-content>
 
+<mat-divider></mat-divider>
