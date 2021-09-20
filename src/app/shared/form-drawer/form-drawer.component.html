@@ -2,19 +2,67 @@
   <mat-drawer disableClose='true' class='right-drawer' [mode]="'over'" [opened]='open' position='end'>
 
     <div class='drawer-header space-between'>
-      <h2 style="margin: 0px 0pc -4px 0px;"> Form Name </h2>
+      <h2 style="margin: 0px 0px -4px 0px;"> Add new Task </h2>
       <button mat-icon-button (click)='closeDrawer()'>
         <mat-icon>close</mat-icon>
       </button>
     </div>
 
-    <div class='drawer-content'>
-      <p>My Content here</p>
+    <div class='drawer-content custom-overflow'>
+      
+      <br/>
+      <form [formGroup]='taskForm'>
+
+        <mat-form-field appearance='fill'>
+          <mat-label>Title</mat-label>
+          <input matInput formControlName='title' placeholder="Task title" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <br/>
+        <br/>
+
+        <mat-form-field appearance='fill'>
+          <mat-label>Labels</mat-label>
+          <mat-chip-list #chipList aria-label="Add task labels">
+
+            <mat-chip [selectable]="true"
+              *ngFor="let label of taskForm.controls.labels.value; index as it" 
+              [removable]="true" (removed)="removeChip(it)">
+                {{ label }}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+
+            <input matInput #label placeholder="Add new label"
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="[13, 32, 188]"
+                   [matChipInputAddOnBlur]="true"
+                   (matChipInputTokenEnd)="addChip(label)">
+
+          </mat-chip-list>
+        </mat-form-field>
+        
+        <br/>
+        <br/>
+
+        <mat-form-field appearance='fill'>
+          <mat-label>Description</mat-label>
+          <textarea matInput rows="4"
+            placeholder='Add your task description here'
+            formControlName='description'>
+          </textarea>
+        </mat-form-field>
+
+      </form>
+
     </div>
 
     <div class="drawer-footer space-between">
-      <button mat-button (click)='this.closeDrawer()'> Cancel </button>
-      <button mat-raised-button color='primary'> Save </button>
+      <button mat-button (click)='closeDrawer()'> Cancel </button>
+      <button mat-raised-button 
+        [disabled]='taskForm.invalid' 
+        (click)='taskForm.valid && appendTask()'
+        color='primary'> Save </button>
     </div>
 
   </mat-drawer>
