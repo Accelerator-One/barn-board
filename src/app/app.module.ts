@@ -31,6 +31,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormDrawerComponent } from './shared/form-drawer/form-drawer.component';
+import { NewTaskComponent } from './shared/new-task/new-task.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FormDrawerComponent } from './shared/form-drawer/form-drawer.component'
     DialogComponent,
     TaskNodeComponent,
     FormDrawerComponent,
+    NewTaskComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,7 @@
+<div class='space-between' style="height: 40px;" (mouseenter)='hovering = true' (mouseleave)='hovering = false'>
+  <ng-content></ng-content>
+  <button mat-icon-button *ngIf='hovering' style="margin-right: 12px" (click)='openFormDrawer()'>
+    <mat-icon style="cursor: pointer;" matTooltip='Add task to board' matTooltipPosition='left'>add</mat-icon>
+  </button>
+  <div *ngIf='!hovering'>&nbsp;</div>
+</div>

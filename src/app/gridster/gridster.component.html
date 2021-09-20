@@ -3,8 +3,12 @@
   <div class='wrapper-board' [ngStyle]='{ "width": getCanvasWidth() }'>
     <div class="container" *ngFor='let item of selectedItems; index as it'>
 
-      <h2 style="padding-left: 1em;"> {{ item.name }} </h2>
+      <app-new-task [bIndex]='it'>
+        <h2 style="padding-left: 1em; margin: 0px 0px"> {{ item.name }} </h2>
+      </app-new-task>
 
+      <br/>
+      
       <div [id]="'board-'+it" cdkDropList [cdkDropListData]="(item.tasks)"
         [cdkDropListConnectedTo]="getConnectedComponents()" class="list" (cdkDropListDropped)="drop($event)">
         <ng-container *ngFor="let data of item.tasks; index as pos">
