@@ -4,8 +4,9 @@ import { CoreService } from '../core.service';
 import { Board } from '../interfaces';
 import { StreamEvent, StreamServiceService } from '../shared/stream-service/stream-service.service';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, throttleTime } from 'rxjs/operators';
 import { StoreService } from '../shared/store/store.service';
+import { BreakpointService } from '../shared/breakpoint.service';
 
 @Component({
   selector: 'app-gridster',
@@ -16,24 +17,36 @@ export class GridsterComponent implements OnInit, OnDestroy {
 
   public dragging: Boolean = false;
   public selectedItems: Array<Board> = [];
+  
   private $destroyer: Subject<void> = new Subject<void>();
+  private canvasScroller: Subject <number> = new Subject <number> ();
 
   constructor(
     public boardService: CoreService,
     public eventService: StreamServiceService,
-    public storeService: StoreService
+    public storeService: StoreService,
+    public breakpointService: BreakpointService
   ) {
     this.selectedItems = this.storeService.fetchBoards();
   }
 
   ngOnInit() {
+
     this.eventService
       .listener(StreamEvent.REMOVE_TAG)
       .pipe(takeUntil(this.$destroyer))
       .subscribe(res => {
         const { x, y, it } = res;
         this.removeLabel(x, y, it);
-      })
+      });
+
+    this.canvasScroller.pipe(
+      takeUntil(this.$destroyer),
+      throttleTime(200)
+    ).subscribe(res => {
+      this.scrollHandler(res);
+    });
+
   }
 
   drop(event: CdkDragDrop<any[]>): void {
@@ -83,6 +96,19 @@ export class GridsterComponent implements OnInit, OnDestroy {
 
   public editTaskDetails() {
 
+  }
+
+  private scrollHandler(val: Number) {
+    const boardRef: any = document.querySelector('.board-canvas');
+    boardRef.scrollLeft += val;
+  }
+
+  scrollLeft() {
+    this.canvasScroller.next(-160);
+  }
+
+  scrollRight() {
+    this.canvasScroller.next(160);
   }
 
   ngOnDestroy() {

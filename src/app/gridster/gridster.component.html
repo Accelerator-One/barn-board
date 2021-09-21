@@ -35,4 +35,7 @@
     <h2> No tasks found </h2>
   </div>
 
+  <span class='scroll-area' [ngClass]='(breakpointService.isHandSet() | async) ? "sa-left-short": "sa-left-long"' (pointermove)='dragging && scrollLeft()'></span>
+  <span class='scroll-area sa-right' (pointermove)='dragging && scrollRight()'></span>
+
 </div>

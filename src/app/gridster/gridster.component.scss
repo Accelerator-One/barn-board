@@ -99,3 +99,22 @@ app-task-node {
 .placeholder {
   height: 80px;
 }
+
+.scroll-area {
+  width: 20px;
+  height: calc(100vh - 64px);
+  position: fixed;
+  top: 64px;
+}
+
+.sa-left-short {
+  left: 0px;
+}
+
+.sa-right {
+  right: 0px;
+}
+
+.sa-left-long {
+  left: 200px;
+}
