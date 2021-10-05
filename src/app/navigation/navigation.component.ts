@@ -24,4 +24,8 @@ export class NavigationComponent {
     }, 2400);
   }
 
+  addNewBoard() {
+    this.dialog.openDialog('board');
+  }
+
 }

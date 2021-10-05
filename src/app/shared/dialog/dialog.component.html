@@ -1,3 +1,23 @@
 <ng-container *ngIf='code === "loader"'>
   <mat-spinner [color]='color' diameter='48'></mat-spinner>
 </ng-container>
+
+<form [formGroup]='boardName' *ngIf='code === "board"' (ngSubmit)='boardName.valid && appendNewBoard()'>
+
+  <mat-form-field appearance='fill'>
+    <mat-label>Add new board</mat-label>
+    <input matInput formControlName='name' placeholder="Board name" required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+  <br /><br />
+
+  <div class='flex space-between'>
+
+    <button mat-button (click)='closeDialog()'> Cancel </button>
+    <button mat-raised-button [disabled]='boardName.invalid' (click)='boardName.valid && appendNewBoard()'
+      color='primary'> Save </button>
+
+  </div>
+
+</form>

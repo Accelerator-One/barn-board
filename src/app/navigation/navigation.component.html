@@ -1,6 +1,8 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(breakpointService.isHandSet() | async) ? 'dialog' : 'navigation'"
-    [mode]="(breakpointService.isHandSet()| async) ? 'over' : 'side'" [opened]="(breakpointService.isHandSet()| async) === false">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+    [attr.role]="(breakpointService.isHandSet() | async) ? 'dialog' : 'navigation'"
+    [mode]="(breakpointService.isHandSet()| async) ? 'over' : 'side'"
+    [opened]="(breakpointService.isHandSet()| async) === false">
     <mat-toolbar>Barnboard</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink='home'>Home</a>
@@ -18,7 +20,7 @@
       <div class='space-between' style='width: 100%'>
         <div> {{ boardService?.orgName }} </div>
         <button mat-icon-button matTooltip='Add new board' matTooltipPosition='left'
-          [matTooltipClass]='"custom-tooltip"'>
+          [matTooltipClass]='"custom-tooltip"' (click)='addNewBoard()'>
           <mat-icon>add</mat-icon>
         </button>
       </div>
