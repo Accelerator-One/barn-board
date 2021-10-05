@@ -21,12 +21,14 @@
   <br />
 
   <p style="color: #212121;"> {{ info?.description }} </p>
-  <div class='space-between' style="height: 56px;">
-    <button mat-mini-fab disableRipple style="box-shadow: none;" [color]='color'>
+  <div class='space-between' style="align-items: flex-start;">
+    <button mat-mini-fab class='assignee-avatar' disableRipple [color]='color'>
       {{ info?.creator[0] }}
     </button>
-    <mat-chip-list>
-      <mat-chip removable *ngFor='let label of info?.labels; index as it' [color]='colorService.getRandomPalette(it)'
+    <mat-chip-list style='margin-bottom: 12px;'>
+      <mat-chip removable
+        *ngFor='let label of info?.labels; index as it' 
+        [color]='colorService.getRandomPalette(it)'
         (removed)="tagRemovalHandler(it)" selected>
         {{ label }}
         <mat-icon matChipRemove>cancel</mat-icon>
