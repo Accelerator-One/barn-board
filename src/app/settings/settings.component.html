@@ -6,16 +6,16 @@
 
   <div class="col s10 m6 l6 h-100">
     <mat-card class='h-100 settings' style="margin-bottom: 0px;">
-      
+
       <div class="card-part header">
-        <h1>Settings</h1>
+        <h2>User Profile</h2>
       </div>
 
       <div class='card-part w-100 content flex-col'>
 
         <!-- Add content adjustments here -->
         <app-profile></app-profile>
-          
+
         <form [formGroup]='settings'>
 
           <mat-form-field appearance='outline'>
@@ -23,16 +23,14 @@
             <input matInput formControlName='name' placeholder="Profile Name" required>
             <mat-error>This field is required</mat-error>
           </mat-form-field>
-        
-          <br /><br />
-        
+
+          <br />
+
           <mat-form-field appearance='outline'>
             <mat-label> Email </mat-label>
             <input matInput formControlName='email' placeholder="john.doe@gmail.com" required>
             <mat-error>This field is required</mat-error>
           </mat-form-field>
-
-          <br /><br />
 
         </form>
 
@@ -40,7 +38,7 @@
 
       <div class="card-part w-100 footer flex-between">
         <button mat-button> Cancel </button>
-        <button mat-raised-button color='primary' > SAVE </button>
+        <button mat-raised-button color='primary'> SAVE </button>
       </div>
 
     </mat-card>
