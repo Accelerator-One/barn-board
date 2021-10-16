@@ -32,6 +32,7 @@ import { environment } from '../environments/environment';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormDrawerComponent } from './shared/form-drawer/form-drawer.component';
 import { NewTaskComponent } from './shared/new-task/new-task.component';
+import { ProfileComponent } from './shared/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { NewTaskComponent } from './shared/new-task/new-task.component';
     TaskNodeComponent,
     FormDrawerComponent,
     NewTaskComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
