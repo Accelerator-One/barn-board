@@ -5,6 +5,7 @@
   overflow: hidden;
   border-radius: 60px;
   margin-bottom: 24px;
+  box-shadow: 0px 0px 8px 0px #989898;
 
   img {
     width: 100%;
@@ -16,4 +17,10 @@
 :host {
   display: flex;
   justify-content: center;
+}
+
+.paint-position {
+  position: relative;
+  top: -64px;
+  left: 40px;
 }

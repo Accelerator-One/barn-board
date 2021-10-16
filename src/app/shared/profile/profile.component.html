@@ -1,3 +1,10 @@
-<div class='profile-image'>
-  <img src='../../../assets/blank-profile.png' />
+<div>
+  <div class='profile-image'>
+    <img id='profileImg' src='../../../assets/blank-profile.png' />
+  </div>
+  <button class='paint-position' mat-mini-fab color="primary" (click)='changeProfilePicture()'>
+    <mat-icon>edit</mat-icon>
+  </button>
+  <input id='imgStore' (change)='appendBlob($event)' type="file" accept="image/png"
+    style="display: none; visibility: hidden;" />
 </div>
