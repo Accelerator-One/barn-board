@@ -19,7 +19,7 @@
       </button>
       <div class='space-between' style='width: 100%'>
         <div> {{ boardService?.orgName }} </div>
-        <button mat-icon-button matTooltip='Add new board' matTooltipPosition='left'
+        <button *ngIf='isDashBoardRoute()' mat-icon-button matTooltip='Add new board' matTooltipPosition='left'
           [matTooltipClass]='"custom-tooltip"' (click)='addNewBoard()'>
           <mat-icon>add</mat-icon>
         </button>
