@@ -1,21 +1,34 @@
+@import '../materialize/materialize-src/sass/materialize.scss';
+
 .grid-container {
   margin: 20px;
+  margin-bottom: 0px;
 }
 
-.dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+:host {
+  width: auto;
+  height: calc(100% - 64px);
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.h-100 {
+  height: calc(100% - 64px);
 }
 
-.dashboard-card-content {
-  text-align: center;
+.max-h {
+  height: max-content;
+}
+
+.mat-card ::ng-deep {
+  height: 84%;
+}
+
+.home-card ::ng-deep {
+  height: 90%;
+  padding-bottom: 24px;
+}
+
+.footer-content {
+  margin-top: 0px;
+  text-align: right;
+  margin-right: 32px;
 }
