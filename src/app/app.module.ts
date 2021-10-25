@@ -17,7 +17,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { LoginComponent } from './login/login.component';
 import { SettingsComponent } from './settings/settings.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -40,7 +39,6 @@ import { ProfileComponent } from './shared/profile/profile.component';
     GridsterComponent,
     HomeComponent,
     NavigationComponent,
-    LoginComponent,
     SettingsComponent,
     DialogComponent,
     TaskNodeComponent,
