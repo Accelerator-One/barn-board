@@ -24,6 +24,7 @@
 
 .home-card ::ng-deep {
   height: 90%;
+  min-height: 240px;
   padding-bottom: 24px;
 }
 
@@ -31,4 +32,10 @@
   margin-top: 0px;
   text-align: right;
   margin-right: 32px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

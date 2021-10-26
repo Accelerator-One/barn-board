@@ -6,12 +6,31 @@
     <div class='col m8 s12 home-card'>
       <mat-card>
         <h3>Summary</h3>
+        <mat-card-content class='h-100 flex-center'>
+          <ngx-charts-pie-chart
+            [legend]='false'
+            [doughnut]='true'
+            [legend]='true'
+            [legendTitle]='"Statistics"'
+            [results]='result'
+          >
+
+          </ngx-charts-pie-chart>
+        </mat-card-content>
       </mat-card>
     </div>
 
     <div class='col m4 s12 home-card'>
       <mat-card>
         <h3>Upcoming Deadlines</h3>
+        <mat-card-content class='h-100 flex-center'>
+          <div class='flex-center' style="flex-direction: column;">
+            <span style="font-size: 2.4em; line-height: 1.15;">
+              <mat-icon inline='true'>list</mat-icon>
+            </span>
+            <p>No deadlines found</p>
+          </div>
+        </mat-card-content>
       </mat-card>
     </div>
 

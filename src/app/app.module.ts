@@ -32,6 +32,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormDrawerComponent } from './shared/form-drawer/form-drawer.component';
 import { NewTaskComponent } from './shared/new-task/new-task.component';
 import { ProfileComponent } from './shared/profile/profile.component';
+import { NgxChartsModule, PieChartModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,8 @@ import { ProfileComponent } from './shared/profile/profile.component';
     MatProgressSpinnerModule,
     MatChipsModule,
     MatTooltipModule,
+    NgxChartsModule,
+    PieChartModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
