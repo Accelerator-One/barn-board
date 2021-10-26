@@ -38,7 +38,7 @@
 
       <div class="card-part w-100 footer flex-between">
         <button mat-button> Cancel </button>
-        <button mat-raised-button color='primary'> SAVE </button>
+        <button [disabled]='settings.invalid' mat-raised-button color='primary'> SAVE </button>
       </div>
 
     </mat-card>
