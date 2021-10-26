@@ -73,7 +73,10 @@ export class GridsterComponent implements OnInit, OnDestroy {
   }
 
   editItem(evt: any) {
-    console.log('editItem():', evt);
+    this.eventService.emit(StreamEvent.TOGGLE_ENDNAV, {
+      open: true,
+      action: evt
+    });
   }
 
   removeItem(evt: Array<number>) {

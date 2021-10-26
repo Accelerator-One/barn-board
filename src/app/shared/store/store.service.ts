@@ -29,4 +29,12 @@ export class StoreService {
     this.boardStore[it].tasks.push(task);
   }
 
+  public getTask(x: number, y: number) {
+    return this.boardStore[x].tasks[y];
+  }
+
+  public updateTask(x: number, y: number, data: any) {
+    this.boardStore[x].tasks[y] = data;
+  }
+
 }

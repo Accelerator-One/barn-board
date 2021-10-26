@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { filter, map, takeUntil, throttleTime } from 'rxjs/operators';
 import { Stream } from '../../interfaces';
 

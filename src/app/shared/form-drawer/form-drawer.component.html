@@ -2,7 +2,9 @@
   <mat-drawer disableClose='true' class='right-drawer' [mode]="'over'" [opened]='open' position='end'>
 
     <div class='drawer-header space-between'>
-      <h2 style="margin: 0px 0px -4px 0px;"> Add new Task </h2>
+      <h2 style="margin: 0px 0px -4px 0px;">
+         {{ this.editMode?'Edit': 'Add new' }} Task 
+      </h2>
       <button mat-icon-button (click)='closeDrawer()'>
         <mat-icon>close</mat-icon>
       </button>

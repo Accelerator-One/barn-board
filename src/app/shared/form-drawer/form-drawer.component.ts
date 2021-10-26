@@ -14,7 +14,7 @@ export class FormDrawerComponent implements OnInit, OnDestroy {
 
   constructor (
     private streamService: StreamServiceService,
-    private storeService: StoreService  
+    private storeService: StoreService
   ) { }
 
   ngOnInit(): void {
@@ -29,8 +29,9 @@ export class FormDrawerComponent implements OnInit, OnDestroy {
       });
   }
 
+  public editMode: boolean = false;
   public open: boolean = false;
-  public action: string = '';
+  public action: (string | Array <string>) = '';
   public $destroyer: Subject<void> = new Subject<void>();
 
   public taskForm: FormGroup = new FormGroup({
@@ -42,7 +43,24 @@ export class FormDrawerComponent implements OnInit, OnDestroy {
     labels: new FormControl([])
   });
 
-  openDrawer(action: string = '') {
+  openDrawer(action: any = '') {
+    
+    if(Array.isArray(action)) {
+      
+      const {
+        title,
+        description,
+        labels
+      } = this.storeService.getTask(action[0], action[1])
+      
+      this.editMode = true;
+      this.taskForm.controls['title'].setValue(title);
+      this.taskForm.controls['description'].setValue(description);
+      this.taskForm.controls['labels'].setValue(labels);
+      this.openDrawer();
+
+    }
+
     this.open = true;
     this.action = action;
   }
@@ -76,8 +94,19 @@ export class FormDrawerComponent implements OnInit, OnDestroy {
       creator: 'Aditya Thakur',
     }
 
-    this.storeService.addTask(parseInt(this.action), newTask);
-    this,this.taskForm.reset();
+    if(!this.editMode)
+      this.storeService.addTask(parseInt(String(this.action)), newTask);
+    else {
+      this.storeService.updateTask(
+        parseInt(String(this.action[0])),
+        parseInt(String(this.action[1])),
+        newTask
+        );
+    }
+    
+    this.taskForm.reset();
+    this.taskForm.controls['labels'].setValue([]);
+    this.editMode = false;
     this.closeDrawer();
   }
 
