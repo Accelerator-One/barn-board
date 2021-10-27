@@ -1,0 +1,79 @@
+{
+  "configVersion": 1,
+  "timestamp": 1635354110935,
+  "index": "/barn-board/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/barn-board/favicon.ico",
+        "/barn-board/index.html",
+        "/barn-board/main.89bf9a2405fe1603c814.js",
+        "/barn-board/manifest.webmanifest",
+        "/barn-board/polyfills.ef447bbc998b6bec201a.js",
+        "/barn-board/runtime.76d91d40011b4f8bd223.js",
+        "/barn-board/styles.9d50d9c0eba65555f611.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/barn-board/assets/blank-profile.png",
+        "/barn-board/assets/icons/icon-16x16.png",
+        "/barn-board/assets/icons/icon-192x192.png",
+        "/barn-board/assets/icons/icon-32x32.png",
+        "/barn-board/assets/icons/icon-512x512.png",
+        "/barn-board/assets/logo/license.pdf",
+        "/barn-board/assets/logo/owl.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/barn-board/assets/blank-profile.png": "059fefae40827bc557c4c9f39fbc6df190ed1116",
+    "/barn-board/assets/icons/icon-16x16.png": "c885293f7aa6c0f85b194584fce54b3b5bbff77c",
+    "/barn-board/assets/icons/icon-192x192.png": "77da7c9267bbcad49895da39330ba07d0c8a421f",
+    "/barn-board/assets/icons/icon-32x32.png": "385fa46633ce6865709509acd1bc8c394bd63a03",
+    "/barn-board/assets/icons/icon-512x512.png": "e27b547eecde6ab589fdf03ab8b6e3761756c4ca",
+    "/barn-board/assets/logo/license.pdf": "bb3e9e18b4d87fe1193186521f4f8e3a6c1f9e6e",
+    "/barn-board/assets/logo/owl.png": "4753b0e11b82b4d00061ef8651e14de8447dedf7",
+    "/barn-board/favicon.ico": "fc6ae0186a8384f7794b198150c0282fd0f40a1d",
+    "/barn-board/index.html": "c81ab091a50fe2b9f7866177eb53e900be0218b6",
+    "/barn-board/main.89bf9a2405fe1603c814.js": "f25d38ff46ecb08d43122e01d7b4d34b10b24785",
+    "/barn-board/manifest.webmanifest": "81d455741d179b6741ce909445d13ecb35a12929",
+    "/barn-board/polyfills.ef447bbc998b6bec201a.js": "0cb13e70b122ddfed9edc9dc5991925aedb3be9b",
+    "/barn-board/runtime.76d91d40011b4f8bd223.js": "4bf861094aaf2b47e660cae03922f1439a29d28c",
+    "/barn-board/styles.9d50d9c0eba65555f611.css": "28f3e9d6da4dda0b1af1e44d77ddc7bc47a9877c"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
